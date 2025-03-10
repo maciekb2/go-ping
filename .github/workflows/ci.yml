@@ -9,6 +9,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    environment: GCP_SA_KEY
 
     steps:
     - name: Checkout repozytorium
