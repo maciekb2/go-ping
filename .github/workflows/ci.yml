@@ -53,8 +53,8 @@ jobs:
     - name: Zapisz obraz Dockerowy jako artefakt
       run: docker save gcr.io/${{ secrets.GCP_PROJECT_ID }}/go-ping:latest > go-ping.tar
 
-    - name: Upload artefaktu Docker Image
-      uses: actions/upload-artifact@v3
+    - name: Upload artifact
+      uses: actions/upload-artifact@v4
       with:
         name: docker-image
         path: go-ping.tar
