@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: GCP_SA_KEY
     env:
-      GCR_JSON_KEY: ${{ secrets.GCR_JSON_KEY }}
+      GCR_JSON_KEY: ${{ secrets.GCP_SA_KEY }}
 
     steps:
     - name: Checkout repozytorium
