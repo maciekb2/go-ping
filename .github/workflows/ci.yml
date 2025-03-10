@@ -44,6 +44,9 @@ jobs:
     - name: Zbuduj obraz Dockerowy
       run: docker build -t go-ping:latest .
 
+    - name: Validate GCP JSON Key
+      run: echo "${{ secrets.GCP_SA_KEY }}" | jq '.'
+
     - name: Logowanie do Google Container Registry (GCR)
       run: printf '%s' "${{ secrets.GCP_SA_KEY }}" | docker login -u _json_key --password-stdin https://gcr.io
     
