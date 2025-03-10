@@ -45,8 +45,8 @@ jobs:
       run: docker build -t go-ping:latest .
 
     - name: Logowanie do Google Container Registry (GCR)
-      run: echo "${{ secrets.GCP_SA_KEY }}" | docker login -u _json_key --password-stdin https://gcr.io
-
+      run: printf '%s' "${{ secrets.GCP_SA_KEY }}" | docker login -u _json_key --password-stdin https://gcr.io
+    
     - name: Tagowanie obrazu dla GCR
       run: docker tag go-ping:latest gcr.io/${{ secrets.GCP_PROJECT_ID }}/go-ping:latest
 
