@@ -1,5 +1,5 @@
 # Etap budowania: używamy obrazu golang do kompilacji aplikacji
-FROM golang:1.19 AS builder
+FROM golang:1.23 AS builder
 WORKDIR /app
 
 # Skopiuj pliki modułów i pobierz zależności
