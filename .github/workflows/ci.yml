@@ -52,8 +52,9 @@ jobs:
     - name: Zbuduj obraz Dockerowy
       run: docker build -t go-ping:latest .
     
-    - name: Tagowanie obrazu dla GCR
-      run: docker tag go-ping:latest europe-central2-docker.pkg.dev/gcr.io/${{ secrets.GCP_PROJECT_ID }}/docker-containers/go-ping:latest
+    - name: Tagowanie obrazu dla Artifact Registry
+      run: docker tag go-ping:latest europe-central2-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/docker-containers/go-ping:latest
 
-    - name: Wypchnięcie obrazu do GCR
-      run: docker push europe-central2-docker.pkg.dev/gcr.io/${{ secrets.GCP_PROJECT_ID }}/docker-containers/go-ping:latest
+    - name: Wypchnięcie obrazu do Artifact Registry
+      run: docker push europe-central2-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/docker-containers/go-ping:latest
+    
