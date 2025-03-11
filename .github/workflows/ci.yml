@@ -23,7 +23,7 @@ jobs:
         credentials_json: ${{ secrets.GCP_SA_KEY }}
 
     - name: Configure Docker to use GCR
-      run: gcloud auth configure-docker
+      run: gcloud auth configure-docker europe-central2-docker.pkg.dev
 
     - name: Setup Go
       uses: actions/setup-go@v4
@@ -53,7 +53,7 @@ jobs:
       run: docker build -t go-ping:latest .
     
     - name: Tagowanie obrazu dla GCR
-      run: docker tag go-ping:latest gcr.io/${{ secrets.GCP_PROJECT_ID }}/go-ping:latest
+      run: docker tag go-ping:latest europe-central2-docker.pkg.dev/gcr.io/${{ secrets.GCP_PROJECT_ID }}/docker-containers/go-ping:latest
 
     - name: Wypchnięcie obrazu do GCR
-      run: docker push gcr.io/${{ secrets.GCP_PROJECT_ID }}/go-ping:latest
+      run: docker push europe-central2-docker.pkg.dev/gcr.io/${{ secrets.GCP_PROJECT_ID }}/docker-containers/go-ping:latest
